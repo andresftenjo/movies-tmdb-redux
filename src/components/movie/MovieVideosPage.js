@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import MovieDetailPage from "./MovieDetailPage"; 
 import Spinner from "../common/Spinner";
-import TopPopularPage from "../RelatedMovies/TopPopularPage";
+import RelatedMoviesPage from "../relatedmovies/RelatedMoviesPage";
 
 class MovieVideosPage extends React.Component {
   state = {
@@ -47,7 +47,7 @@ class MovieVideosPage extends React.Component {
               <div><button
                onClick={() => this.props.history.goBack()}
                >Back</button></div>
-              <TopPopularPage movId={this.state.movId} />
+              <RelatedMoviesPage movId={this.state.movId} />
             </>
           )}
         </div>

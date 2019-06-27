@@ -6,7 +6,7 @@ const imgPoster = {
   width: "100%"
 };
 
-const UpcomingList = ({ topmovies }) => (
+const RelatedMoviesList = ({ relatedmovies }) => (
   <table className="table">
     <thead>
       <tr>
@@ -18,16 +18,11 @@ const UpcomingList = ({ topmovies }) => (
       </tr>
     </thead>
     <tbody>
-      {topmovies.map(movie => {
+      {relatedmovies.map(movie => {
         return (
           <tr key={movie.id}>
             <td>
-              <a
-                className="btn btn-light"
-                href={"http://pluralsight.com/courses/" + movie.slug}
-              >
                 <img style={imgPoster} src={"http://image.tmdb.org/t/p/original/" + movie.poster_path }></img>
-              </a>
             </td>
             <td>
               <Link to={"/movie/" + movie.id}>{movie.title}</Link>
@@ -46,8 +41,8 @@ const UpcomingList = ({ topmovies }) => (
   </table>
 );
 
-UpcomingList.propTypes = {
-  topmovies: PropTypes.array.isRequired
+RelatedMoviesList.propTypes = {
+  relatedmovies: PropTypes.array.isRequired
 };
 
-export default UpcomingList;
+export default RelatedMoviesList;

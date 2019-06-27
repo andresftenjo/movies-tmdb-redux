@@ -1,40 +1,35 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as topMoviesActions from "../../redux/actions/topMoviesActions";
+import * as relatedMoviesAction from "../../redux/actions/relatedMoviesAction";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
-import TopMovieList from "./TopMoviesList";
-import { Redirect } from "react-router-dom";
+import RelatedMoviesList from "./RelatedMoviesList";
 import Spinner from "../common/Spinner";
-import { toast } from "react-toastify";
 
 class TopPopularPage extends React.Component {
   state = {
   };
 
   componentDidMount() {
-    const { topmovies, actions } = this.props;
+    const { relatedmovies, actions, movId } = this.props;
 
-    if (topmovies.length === 0) {
-      actions.loadTopMovies().catch(error => {
-        alert("Loading Top Popular Movies failed" + error);
+      actions.loadRelatedMovies(this.props.movId).catch(error => {
+        alert("Loading Related Movies failed" + error);
       });
-    }
+    
   }
 
   render() {
     return (
       <>
-        {this.state.redirectToAddCoursePage && <Redirect to="/course" />}
         <div className="pageList">
-          <h3>Top Popular Movies</h3>
-          <p className="description">Current popular movies on TMDb</p>
+          <h4>Related Movies</h4>
           {this.props.loading ? (
             <Spinner />
           ) : (
             <>
-              <TopMovieList
-                topmovies={this.props.topmovies}
+              <RelatedMoviesList
+                relatedmovies={this.props.relatedmovies}
               />
             </>
           )}
@@ -45,17 +40,17 @@ class TopPopularPage extends React.Component {
 }
 
 TopPopularPage.propTypes = {
-  topmovies: PropTypes.array.isRequired,
+  relatedmovies: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    topmovies:
-      state.topmovies.length === 0
+    relatedmovies:
+      state.relatedmovies.length === 0
         ? []
-        : state.topmovies.map(movie => {
+        : state.relatedmovies.map(movie => {
             return {
               ...movie
             };
@@ -67,7 +62,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      loadTopMovies: bindActionCreators(topMoviesActions.loadTopMovies, dispatch)
+      loadRelatedMovies: bindActionCreators(relatedMoviesAction.loadRelatedMovies, dispatch)
     }
   };
 }

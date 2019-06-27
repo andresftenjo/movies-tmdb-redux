@@ -1,19 +1,18 @@
 import * as types from "./actionTypes";
-import * as topMoviesApi from "../../api/relatedMoviesApi";
+import * as relatedMoviesApi from "../../api/relatedMoviesApi";
 import { beginApiCall, apiCallError } from "./apiStatusActions";
 
-export function loadTopMoviesSuccess(topmovies) {
-  return { type: types.LOAD_TOPMOVIES_SUCCESS, topmovies };
+export function loadRelatedMoviesSuccess(relatedmovies) {
+  return { type: types.LOAD_RELATEDMOVIES_SUCCESS, relatedmovies };
 }
 
 export function loadRelatedMovies(id) {
   return function(dispatch) {
     dispatch(beginApiCall());
-    return topMoviesApi
+    return relatedMoviesApi
       .getRelatedMovies(id)
-      .then(topmovies => {
-        
-        dispatch(loadTopMoviesSuccess(topmovies.results));
+      .then(relatedmovies => {
+        dispatch(loadRelatedMoviesSuccess(relatedmovies.results));
       })
       .catch(error => {
         dispatch(apiCallError(error));

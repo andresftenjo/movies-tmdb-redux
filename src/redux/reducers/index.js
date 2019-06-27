@@ -6,6 +6,7 @@ import movievideos from "./movieVideosReducer";
 import moviedetails from "./movieDetailsReducer";
 import authors from "./authorReducer";
 import apiCallsInProgress from "./apiStatusReducer";
+import relatedmovies from "./relatedMoviesReducer";
 
 const rootReducer = combineReducers({
   courses,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   authors,
   movievideos,
   moviedetails,
+  relatedmovies,
   apiCallsInProgress
 });
 
