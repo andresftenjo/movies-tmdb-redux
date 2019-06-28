@@ -6,7 +6,7 @@ const imgPoster = {
   width: "100%"
 };
 
-const UpcomingList = ({ topmovies, onDeleteClick }) => (
+const UpcomingList = ({ topmovies }) => (
   <table className="table">
     <thead>
       <tr>
@@ -25,9 +25,9 @@ const UpcomingList = ({ topmovies, onDeleteClick }) => (
                 <img style={imgPoster} src={"http://image.tmdb.org/t/p/original/" + movie.poster_path }></img>
             </td>
             <td>
-              <Link to={"/movie/" + movie.id}>{movie.title}</Link>
+              <Link className="linkMovie" to={"/movie/" + movie.id}>{movie.title}</Link>
             </td>
-            <td>{movie.overview}</td>
+            <td className="overviewMovie">{movie.overview}</td>
             <td>{movie.release_date}</td>
             <td>
               <button className="btn btn-outline-info">
@@ -42,9 +42,7 @@ const UpcomingList = ({ topmovies, onDeleteClick }) => (
 );
 
 UpcomingList.propTypes = {
-  topmovies: PropTypes.array.isRequired,
-  onDeleteClick: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
+  topmovies: PropTypes.array.isRequired
 };
 
 export default UpcomingList;

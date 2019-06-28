@@ -17,7 +17,7 @@ class UpcomingPage extends React.Component {
 
     if (upcomingmovies.length === 0) {
       actions.loadUpcoming().catch(error => {
-        alert("Loading courses failed" + error);
+        alert("Loading upcoming movies " + error);
       });
     }
   }
@@ -25,16 +25,18 @@ class UpcomingPage extends React.Component {
   render() {
     return (
       <>
-        <h4>Upcoming Movies</h4>
-        {this.props.loading ? (
-          <Spinner />
-        ) : (
-          <>
-            <UpcomingList
-              upcomingmovies={this.props.upcomingmovies}
-            />
-          </>
-        )}
+      <div className="pageList">
+          <h4>Upcoming Movies</h4>
+          {this.props.loading ? (
+            <Spinner />
+          ) : (
+            <>
+              <UpcomingList
+                upcomingmovies={this.props.upcomingmovies}
+              />
+            </>
+          )}
+        </div>
       </>
     );
   }

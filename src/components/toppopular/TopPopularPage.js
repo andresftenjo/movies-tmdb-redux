@@ -25,7 +25,6 @@ class TopPopularPage extends React.Component {
   render() {
     return (
       <>
-        {this.state.redirectToAddCoursePage && <Redirect to="/course" />}
         <div className="pageList">
           <h3>Top Popular Movies</h3>
           <p className="description">Current popular movies on TMDb</p>

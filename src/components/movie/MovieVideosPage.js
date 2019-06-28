@@ -14,7 +14,8 @@ class MovieVideosPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        movId : props.match.params.id
+        movId : props.match.params.id,
+        history: props.history
     };
   }
 
@@ -47,9 +48,10 @@ class MovieVideosPage extends React.Component {
               <div><button
                onClick={() => this.props.history.goBack()}
                >Back</button></div>
-              <RelatedMoviesPage movId={this.state.movId} />
+             
             </>
           )}
+           <RelatedMoviesPage movId={this.state.movId} history_={this.state.history} />
         </div>
       </>
     );

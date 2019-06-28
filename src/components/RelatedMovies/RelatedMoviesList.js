@@ -6,7 +6,7 @@ const imgPoster = {
   width: "100%"
 };
 
-const RelatedMoviesList = ({ relatedmovies }) => (
+const RelatedMoviesList = ({ relatedmovies, refreshMovie }) => (
   <table className="table">
     <thead>
       <tr>
@@ -25,13 +25,18 @@ const RelatedMoviesList = ({ relatedmovies }) => (
                 <img style={imgPoster} src={"http://image.tmdb.org/t/p/original/" + movie.poster_path }></img>
             </td>
             <td>
-              <Link to={"/movie/" + movie.id}>{movie.title}</Link>
+              <a
+                className="linkMovie"
+                onClick={() => refreshMovie(movie.id)}
+              >
+                {movie.title}
+              </a>
             </td>
-            <td>{movie.overview}</td>
+            <td className="overviewMovie">{movie.overview}</td>
             <td>{movie.release_date}</td>
             <td>
-              <button className="btn btn-outline-info">
-                  <Link to={"/movie/" + movie.id}>Trailer</Link>
+              <button className="btn btn-outline-info" onClick={() => refreshMovie(movie.id)}>
+                Trailer
               </button>
             </td>
           </tr>
@@ -42,7 +47,8 @@ const RelatedMoviesList = ({ relatedmovies }) => (
 );
 
 RelatedMoviesList.propTypes = {
-  relatedmovies: PropTypes.array.isRequired
+  relatedmovies: PropTypes.array.isRequired,
+  refreshMovie: PropTypes.func.isRequired
 };
 
 export default RelatedMoviesList;

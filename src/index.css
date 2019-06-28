@@ -17,12 +17,27 @@ nav {
   padding: 2rem;
 }
 
+.pageList .linkMovie {
+  color: #007bff !important;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.pageList .overviewMovie{
+  font-size: 0.8rem;
+}
+
+.pageList button.btn-outline-info a:hover{
+  color: white;
+  text-decoration: none;
+}
+
 .movieDetailsContainer { 
   margin-bottom: 2%;
 }
 
 .movieDetailsContainer .description { 
-  font-size: 1.6vmin;
+  font-size: 0.8rem;
 }
 
 .movieDetailsContainer h4 { 

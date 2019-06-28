@@ -6,18 +6,24 @@ import { bindActionCreators } from "redux";
 import RelatedMoviesList from "./RelatedMoviesList";
 import Spinner from "../common/Spinner";
 
-class TopPopularPage extends React.Component {
+class RelatedMoviesPage extends React.Component {
   state = {
   };
 
   componentDidMount() {
-    const { relatedmovies, actions, movId } = this.props;
+    const { relatedmovies, actions, movId, history_ } = this.props;
 
+    
       actions.loadRelatedMovies(this.props.movId).catch(error => {
         alert("Loading Related Movies failed" + error);
       });
     
   }
+
+  handleRefresh = movId_ => {
+    this.props.history_.push('/movie/' + movId_);
+    location.reload();
+  };
 
   render() {
     return (
@@ -30,6 +36,7 @@ class TopPopularPage extends React.Component {
             <>
               <RelatedMoviesList
                 relatedmovies={this.props.relatedmovies}
+                refreshMovie={this.handleRefresh}
               />
             </>
           )}
@@ -39,7 +46,7 @@ class TopPopularPage extends React.Component {
   }
 }
 
-TopPopularPage.propTypes = {
+RelatedMoviesPage.propTypes = {
   relatedmovies: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired
@@ -60,6 +67,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
+  
   return {
     actions: {
       loadRelatedMovies: bindActionCreators(relatedMoviesAction.loadRelatedMovies, dispatch)
@@ -70,4 +78,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TopPopularPage);
+)(RelatedMoviesPage);
