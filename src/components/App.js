@@ -6,6 +6,7 @@ import Header from "./common/Header";
 import PageNotFound from "./PageNotFound";
 import TopPopularPage from "./toppopular/TopPopularPage";
 import MovieVideosPage from "./movie/MovieVideosPage";
+import SearchMoviesPage from "./searchmovies/SearchMoviesPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/about" component={AboutPage} />
         <Route path="/toppopular" component={TopPopularPage} />
         <Route path="/movie/:id" component={MovieVideosPage} />
+        <Route path="/search" component={SearchMoviesPage} />
         <Route component={PageNotFound} />
       </Switch>
       <ToastContainer autoClose={3000} hideProgressBar />

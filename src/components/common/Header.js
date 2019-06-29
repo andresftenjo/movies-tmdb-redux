@@ -13,6 +13,10 @@ const Header = () => {
         Top Popular
       </NavLink>
       {" | "}
+      <NavLink to="/search" activeStyle={activeStyle}>
+        Search movie
+      </NavLink>
+      {" | "}
       <NavLink to="/about" activeStyle={activeStyle}>
         About
       </NavLink>

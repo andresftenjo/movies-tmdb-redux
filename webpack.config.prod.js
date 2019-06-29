@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpackBundleAnalyzer = require("webpack-bundle-analyzer");
 
 process.env.NODE_ENV = "production";
+process.env.BABEL_ENV = "production";
 
 module.exports = {
   mode: "production",

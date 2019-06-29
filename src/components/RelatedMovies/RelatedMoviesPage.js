@@ -13,9 +13,8 @@ class RelatedMoviesPage extends React.Component {
   componentDidMount() {
     const { relatedmovies, actions, movId, history_ } = this.props;
 
-    
       actions.loadRelatedMovies(this.props.movId).catch(error => {
-        alert("Loading Related Movies failed" + error);
+        //alert("Loading Related Movies failed" + error);
       });
     
   }

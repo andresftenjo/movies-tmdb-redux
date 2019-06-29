@@ -4,9 +4,7 @@ import * as topMoviesActions from "../../redux/actions/topMoviesActions";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import TopMovieList from "./TopMoviesList";
-import { Redirect } from "react-router-dom";
 import Spinner from "../common/Spinner";
-import { toast } from "react-toastify";
 
 class TopPopularPage extends React.Component {
   state = {

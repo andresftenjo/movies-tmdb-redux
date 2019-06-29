@@ -1,9 +1,8 @@
 export default {
-  courses: [],
   upcomingmovies: [],
   topmovies: [],
-  authors: [],
   relatedmovies: [],
+  searchmovies: [],
   movievideos: {},
   moviedetails: {},
   apiCallsInProgress: 0

@@ -25,11 +25,11 @@ class MovieVideosPage extends React.Component {
     const { movievideos, moviedetails, actions } = this.props;
   
     actions.loadMovieDetails(this.state.movId).catch(error => {
-      alert("Loading Movie Details failed" + error);
+      //alert("Loading Movie Details failed" + error);
     });
 
     actions.loadVideoMovies(this.state.movId).catch(error => {
-       alert("Loading Movie Video failed" + error);
+       //alert("Loading Movie Video failed" + error);
     });
   }
 

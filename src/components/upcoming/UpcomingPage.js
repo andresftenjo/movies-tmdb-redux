@@ -4,12 +4,10 @@ import * as upcomingActions from "../../redux/actions/upcomingActions";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import UpcomingList from "./UpcomingList";
-import { Redirect } from "react-router-dom";
 import Spinner from "../common/Spinner";
 
 class UpcomingPage extends React.Component {
   state = {
-    redirectToAddCoursePage: false
   };
 
   componentDidMount() {
