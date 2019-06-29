@@ -5,7 +5,8 @@
 2. **Navigate to this project's root directory on the command line.**
 3. **Install Node Packages.** - `npm install`
 4. **Install [React developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)** in Chrome.
-5. Having issues? See below.
+5. **Run the app** - `npm start`
+6. **Test the app** - `npm t`
 
 ## Having Issues? Try these things first:
 
