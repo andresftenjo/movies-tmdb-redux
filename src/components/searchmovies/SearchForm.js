@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import TextInput from "../common/TextInput";
 
 const SearchForm = ({
-  movieTitle,
   onSave,
   onChange,
   saving = false,

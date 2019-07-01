@@ -1,9 +1,11 @@
 import { handleResponse, handleError } from "./apiUtils";
 
-const baseUrl = "https://api.themoviedb.org/3/movie/upcoming?api_key=ec710cf0baa819470d27d508e5004923&language=en-US&page=1";
+const baseUrl = process.env.API_URL;
+const currentRoute = "movie/upcoming";
+const token = "?api_key=" + process.env.API_TOKEN;
 
 export function getUpcoming() {
-  return fetch(baseUrl)
+  return fetch(baseUrl + currentRoute + token + "&language=en-US&page=1")
     .then(handleResponse)
     .catch(handleError);
 }

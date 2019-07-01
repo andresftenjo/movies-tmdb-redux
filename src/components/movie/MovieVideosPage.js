@@ -20,17 +20,12 @@ class MovieVideosPage extends React.Component {
   }
 
   componentDidMount() {
-
-
-    const { movievideos, moviedetails, actions } = this.props;
+    
+    const { actions } = this.props;
   
-    actions.loadMovieDetails(this.state.movId).catch(error => {
-      //alert("Loading Movie Details failed" + error);
-    });
+    actions.loadMovieDetails(this.state.movId);
 
-    actions.loadVideoMovies(this.state.movId).catch(error => {
-       //alert("Loading Movie Video failed" + error);
-    });
+    actions.loadVideoMovies(this.state.movId);
   }
 
   render() {
@@ -63,7 +58,8 @@ MovieVideosPage.propTypes = {
   actions: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
   moviedetails: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {

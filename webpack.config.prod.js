@@ -28,7 +28,8 @@ module.exports = {
     new webpack.DefinePlugin({
       // This global makes sure React is built in prod mode.
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-      "process.env.API_URL": JSON.stringify("https://api.themoviedb.org/3/")
+      "process.env.API_URL": JSON.stringify("https://api.themoviedb.org/3/"),
+      "process.env.API_TOKEN": JSON.stringify("ec710cf0baa819470d27d508e5004923")
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html",

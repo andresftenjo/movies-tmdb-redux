@@ -11,12 +11,9 @@ class RelatedMoviesPage extends React.Component {
   };
 
   componentDidMount() {
-    const { relatedmovies, actions, movId, history_ } = this.props;
+    const { actions } = this.props;
 
-      actions.loadRelatedMovies(this.props.movId).catch(error => {
-        //alert("Loading Related Movies failed" + error);
-      });
-    
+      actions.loadRelatedMovies(this.props.movId);
   }
 
   handleRefresh = movId_ => {
@@ -48,7 +45,9 @@ class RelatedMoviesPage extends React.Component {
 RelatedMoviesPage.propTypes = {
   relatedmovies: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  movId: PropTypes.string.isRequired,
+  history_: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {

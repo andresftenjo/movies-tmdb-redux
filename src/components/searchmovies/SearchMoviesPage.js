@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import * as searchMovieActions from "../../redux/actions/searchMovieActions";
 import PropTypes from "prop-types";
@@ -6,7 +6,6 @@ import { bindActionCreators } from "redux";
 import SearchMoviesList from "./SearchMoviesList";
 import Spinner from "../common/Spinner";
 import SearchForm from "./SearchForm";
-
   
 class SearchMoviesPage extends React.Component {
   state = {
@@ -16,7 +15,6 @@ class SearchMoviesPage extends React.Component {
     super(props);
     this.state = {
       movieTitle : "",
-      searchmovies : [],
       history: props.history
     };
   }
@@ -24,7 +22,7 @@ class SearchMoviesPage extends React.Component {
 
   componentDidMount() {
     
-    const { searchmovies, actions, history } = this.props;
+    const { actions } = this.props;
  
     const urlParams = new URLSearchParams(this.props.location.search)
     const key = urlParams.get('title')
@@ -40,27 +38,31 @@ class SearchMoviesPage extends React.Component {
     location.reload();
   };
 
-  handleChange = event => {
-    const { name, value } = event.target;
-   
+  removeQuery = () => {
+    this.props.location.search = "";
+    this.props.history.push(this.props.location.pathname);
+  };
+
+  handleChange = () => {
+    const urlParams = new URLSearchParams(this.props.location.search)
+    const key = urlParams.get('title')
+    
+    if (key) this.removeQuery();
   }
 
   handleSearch = query => {
 
     const errors = {};
-
     if (!query) errors.title = "Movie Title is required.";
 
     this.state.setErrors(errors);
-    // Form is valid if the errors object still has no properties
+    
     const erros_ = Object.keys(errors).length === 0;
-
     if (!erros_) return;
 
     this.actions.loadMovieSearch_(query).catch(error => {
       alert("Searching Movies failed" + error);
     });
-   
   }
 
   render() {
@@ -100,7 +102,8 @@ SearchMoviesPage.propTypes = {
   searchmovies: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
