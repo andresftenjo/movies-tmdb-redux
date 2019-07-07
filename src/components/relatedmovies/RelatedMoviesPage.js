@@ -55,7 +55,7 @@ function mapStateToProps(state) {
     relatedmovies:
       state.relatedmovies.length === 0
         ? []
-        : state.relatedmovies.map(movie => {
+        : state.relatedmovies.slice(0, 3).map(movie => {
             return {
               ...movie
             };

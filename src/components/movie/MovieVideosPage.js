@@ -15,7 +15,8 @@ class MovieVideosPage extends React.Component {
     super(props);
     this.state = {
         movId : props.match.params.id,
-        history: props.history
+        history: props.history,
+        tmbdImgPath: "http://image.tmdb.org/t/p/original/"
     };
   }
 
@@ -31,7 +32,7 @@ class MovieVideosPage extends React.Component {
   render() {
     return (
       <>
-        <div className="pageList">
+        <div className="pageList detailContainer" style={{ backgroundImage: `url(${this.state.tmbdImgPath + this.props.moviedetails.backdrop_path})` }}>
           {this.props.loading ? (
             <Spinner />
           ) : (
@@ -40,7 +41,7 @@ class MovieVideosPage extends React.Component {
                 movievideos={this.props.movievideos}
                 moviedetails={this.props.moviedetails}
               />
-              <div><button
+              <div className="backBtn"><button
                onClick={() => this.props.history.goBack()}
                >Back</button></div>
              
