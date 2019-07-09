@@ -24,6 +24,9 @@ nav a:hover{
   margin-left: 2%;
 }
 
+.posterMovieImg {
+  width: 80%;
+}
 .jumbotron h2 img { width: 60px; padding-right: 1%; }
 .jumbotron .description { margin-bottom:2%; }
 

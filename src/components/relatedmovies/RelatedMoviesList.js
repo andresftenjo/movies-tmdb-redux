@@ -1,10 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const imgPoster = {
-  width: "100%"
-};
-
 const RelatedMoviesList = ({ relatedmovies, refreshMovie }) => (
   <table className="table">
     <thead>
@@ -21,7 +17,7 @@ const RelatedMoviesList = ({ relatedmovies, refreshMovie }) => (
         return (
           <tr key={movie.id}>
             <td>
-                <img style={imgPoster} src={"http://image.tmdb.org/t/p/original/" + movie.poster_path }></img>
+                <img className="posterMovieImg" src={"http://image.tmdb.org/t/p/original/" + movie.poster_path }></img>
             </td>
             <td>
               <a

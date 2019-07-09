@@ -2,10 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const imgPoster = {
-  width: "100%"
-};
-
 const UpcomingList = ({ upcomingmovies }) => (
   <table className="table">
     <thead>
@@ -22,7 +18,7 @@ const UpcomingList = ({ upcomingmovies }) => (
         return (
           <tr key={movie.id}>
             <td>
-                <img style={imgPoster} src={"http://image.tmdb.org/t/p/original/" + movie.poster_path }></img>
+                <img className="posterMovieImg" src={"http://image.tmdb.org/t/p/original/" + movie.poster_path }></img>
             </td>
             <td>
               <Link className="linkMovie" to={"/movie/" + movie.id}>{movie.title}</Link>
