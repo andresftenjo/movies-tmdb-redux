@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import MovieDetailPage from "./MovieDetailPage"; 
 import Spinner from "../common/Spinner";
 import RelatedMoviesPage from "../relatedmovies/RelatedMoviesPage";
+import "./MovieDetail.css";
 
 class MovieVideosPage extends React.Component {
   state = {

@@ -52,37 +52,6 @@ nav a:hover{
   text-decoration: none;
 }
 
-.movieDetailsContainer { 
-  margin-bottom: 1%;
-}
-
-.movieDetailsContainer .description { 
-  font-size: 0.9rem;
-  color: white;
-  background: #27272775;
-  padding: 1%;
-}
-
-.detailContainer {
-  background-repeat:repeat-y;
-  background-size: 100% auto;
-}
-
-.movieDetailsContainer h4 { 
-  margin-bottom: 2%; 
-  padding-top: 1%;
-  text-shadow: 3px 1px 2px rgb(47, 47, 47);
-  color: white;
-}
-
-.movieDetailsContainer .list-group{
-  flex-direction: inherit;
-  margin-top: 1%;
-}
-.movieDetailsContainer .list-group .list-group-item{
-  margin-right: 1%;
-}
-
 .backBtn {
   padding-top: 1%;
   padding-bottom: 1%;
