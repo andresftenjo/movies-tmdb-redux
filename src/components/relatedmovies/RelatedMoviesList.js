@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const RelatedMoviesList = ({ relatedmovies, refreshMovie }) => (
+const RelatedMoviesList = ({ relatedmovies }) => (
   <table className="table">
     <thead>
       <tr>
@@ -21,18 +21,18 @@ const RelatedMoviesList = ({ relatedmovies, refreshMovie }) => (
             </td>
             <td>
               <a
-                className="linkMovie"
-                onClick={() => refreshMovie(movie.id)}
+                className="linkMovie" href={/movie/ + movie.id}
               >
                 {movie.title}
               </a>
+              
             </td>
             <td className="overviewMovie">{movie.overview}</td>
             <td>{movie.release_date}</td>
             <td>
-              <button className="btn btn-outline-info" onClick={() => refreshMovie(movie.id)}>
-                Trailer
-              </button>
+             <button className="btn btn-outline-info">
+                <a className="btn-box" href={/movie/ + movie.id}>Trailer</a>
+             </button>
             </td>
           </tr>
         );
@@ -42,8 +42,7 @@ const RelatedMoviesList = ({ relatedmovies, refreshMovie }) => (
 );
 
 RelatedMoviesList.propTypes = {
-  relatedmovies: PropTypes.array.isRequired,
-  refreshMovie: PropTypes.func.isRequired
+  relatedmovies: PropTypes.array.isRequired
 };
 
 export default RelatedMoviesList;

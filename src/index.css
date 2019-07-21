@@ -42,6 +42,9 @@ nav a:hover{
   text-decoration: none !important;
   cursor: pointer;
 }
+.pageList .btn-box:hover {
+    color: white;
+}
 
 .pageList .overviewMovie{
   font-size: 0.8rem;

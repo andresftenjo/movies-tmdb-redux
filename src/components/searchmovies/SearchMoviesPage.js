@@ -33,11 +33,6 @@ class SearchMoviesPage extends React.Component {
 
   }
 
-  handleRefresh = movId_ => {
-    this.props.history.push('/movie/' + movId_);
-    location.reload();
-  };
-
   removeQuery = () => {
     this.props.location.search = "";
     this.props.history.push(this.props.location.pathname);
@@ -85,7 +80,6 @@ class SearchMoviesPage extends React.Component {
             {this.props.searchmovies.length ? (
             <SearchMoviesList
             searchmovies={this.props.searchmovies}
-            refreshMovie={this.handleRefresh}
           />
           ) : (
             <>

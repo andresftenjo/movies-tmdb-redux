@@ -1,11 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const imgPoster = {
-  width: "100%"
-};
-
-const SearchMoviesList = ({ searchmovies, refreshMovie }) => (
+const SearchMoviesList = ({ searchmovies }) => (
   <table className="table">
     <thead>
       <tr>
@@ -21,21 +18,16 @@ const SearchMoviesList = ({ searchmovies, refreshMovie }) => (
         return (
           <tr key={movie.id}>
             <td>
-                <img style={imgPoster} src={"http://image.tmdb.org/t/p/original/" + movie.poster_path }></img>
+                <img className="posterMovieImg" src={"http://image.tmdb.org/t/p/original/" + movie.poster_path }></img>
             </td>
             <td>
-              <a
-                className="linkMovie"
-                onClick={() => refreshMovie(movie.id)}
-              >
-                {movie.title}
-              </a>
+              <Link className="linkMovie" to={"/movie/" + movie.id}>{movie.title}</Link>
             </td>
             <td className="overviewMovie">{movie.overview}</td>
             <td>{movie.release_date}</td>
             <td>
-              <button className="btn btn-outline-info" onClick={() => refreshMovie(movie.id)}>
-                Trailer
+               <button className="btn btn-outline-info">
+                  <Link to={"/movie/" + movie.id}>Trailer</Link>
               </button>
             </td>
           </tr>
@@ -46,8 +38,7 @@ const SearchMoviesList = ({ searchmovies, refreshMovie }) => (
 );
 
 SearchMoviesList.propTypes = {
-  searchmovies: PropTypes.array.isRequired,
-  refreshMovie: PropTypes.func.isRequired
+  searchmovies: PropTypes.array.isRequired
 };
 
 export default SearchMoviesList;
