@@ -73,3 +73,6 @@ nav a:hover{
   line-height: 45px;
   font-weight: bold;
 }
+
+.btnUpcomingPrev{ float: left; }
+.btnUpcomingNext{ float: right; }

@@ -10,14 +10,38 @@ class UpcomingPage extends React.Component {
   state = {
   };
 
+  constructor(props){
+    super(props);
+    this.state={ count: 1}
+  }
+
   componentDidMount() {
     const { upcomingmovies, actions } = this.props;
 
     if (upcomingmovies.length === 0) {
-      actions.loadUpcoming().catch(error => {
+      actions.loadUpcoming(this.state.count).catch(error => {
         alert("Loading upcoming movies " + error);
       });
     }
+  }
+
+  getPrevUpcoming = () => {
+    if(this.state.count > 1){
+      this.setState({count: this.state.count - 1}, () => { 
+        this.props.actions.loadUpcoming(this.state.count).catch(error => {
+          alert("Loading upcoming movies " + error);
+        });
+      });
+    }
+  }
+
+  getNextUpcoming = () => {
+    
+    this.setState({count: this.state.count + 1}, () => { 
+      this.props.actions.loadUpcoming(this.state.count).catch(error => {
+        alert("Loading upcoming movies " + error);
+      });
+    });
   }
 
   render() {
@@ -32,6 +56,10 @@ class UpcomingPage extends React.Component {
               <UpcomingList
                 upcomingmovies={this.props.upcomingmovies}
               />
+              <div className="">
+                <button className="btnUpcomingPrev" onClick={() => this.getPrevUpcoming()}>Prev</button>
+                <button className="btnUpcomingNext" onClick={() => this.getNextUpcoming()}>Next</button>
+              </div>
             </>
           )}
         </div>

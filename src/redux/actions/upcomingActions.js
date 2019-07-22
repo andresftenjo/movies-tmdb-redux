@@ -6,11 +6,11 @@ export function loadUpcomingSuccess(upcomingmovies) {
   return { type: types.LOAD_UPCOMINGMOVIES_SUCCESS, upcomingmovies };
 }
 
-export function loadUpcoming() {
+export function loadUpcoming(index) {
   return function(dispatch) {
     dispatch(beginApiCall());
     return upcomingApi
-      .getUpcoming()
+      .getUpcoming(index)
       .then(upcomingmovies => {
         dispatch(loadUpcomingSuccess(upcomingmovies.results));
       })
