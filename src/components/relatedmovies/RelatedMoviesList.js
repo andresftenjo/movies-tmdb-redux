@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const RelatedMoviesList = ({ relatedmovies }) => (
-  <table className="table">
+  <table className="table table-striped">
     <thead>
       <tr>
         <th />

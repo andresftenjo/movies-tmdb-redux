@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const SearchMoviesList = ({ searchmovies }) => (
-  <table className="table">
+  <table className="table table-striped">
     <thead>
       <tr>
         <th />

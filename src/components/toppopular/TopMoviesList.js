@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const UpcomingList = ({ topmovies }) => (
-  <table className="table">
+  <table className="table table-striped">
     <thead>
       <tr>
         <th />
